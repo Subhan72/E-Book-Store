@@ -1,0 +1,137 @@
+.addBookContainer {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .headerInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .sellerDetails h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .sellerDetails p {
+    margin: 0.5rem 0 0;
+    color: #666;
+    font-size: 1rem;
+  }
+  
+  .logoutButton {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logoutButton:hover {
+    background-color: #ff5252;
+  }
+  
+  .formWrapper h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  .bookForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    grid-column: span 2;
+  }
+  
+  .formGroup:nth-child(odd) {
+    grid-column: span 1;
+  }
+  
+  .formGroup label {
+    font-weight: 600;
+    color: #555;
+    margin-left: 0.25rem;
+  }
+  
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .formGroup input:focus,
+  .formGroup select:focus,
+  .formGroup textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  }
+  
+  .inputError {
+    border-color: #ff6b6b;
+  }
+  
+  .errorText {
+    color: #ff6b6b;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  
+  .submitButton {
+    grid-column: span 2;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .submitButton:hover {
+    background-color: #3a7bd5;
+  }
+  
+  .successMessage {
+    background-color: #4caf50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 600px) {
+    .bookForm {
+      grid-template-columns: 1fr;
+    }
+  
+    .formGroup {
+      grid-column: span 1 !important;
+    }
+  }
