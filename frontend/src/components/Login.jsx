@@ -4,45 +4,45 @@ import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [formData, setFormData] = useState({ email: "", password: "" });
-    const [errors, setErrors] = useState({});
-    const navigate = useNavigate();
-  
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    };
-  
-    const validateForm = () => {
-      const newErrors = {};
-      if (!formData.email) newErrors.email = "Email is required";
-      if (!formData.email.includes("@")) newErrors.email = "Invalid email format";
-      if (!formData.password) newErrors.password = "Password is required";
-      setErrors(newErrors);
-      return Object.keys(newErrors).length === 0;
-    };
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      if (validateForm()) {
-        try {
-          const response = await axios.post(
-            "http://localhost:5000/api/auth/login",
-            { email: formData.email, password: formData.password }
-          );
-  
-          localStorage.setItem('sellerToken', response.data.token);
-          localStorage.setItem('sellerId', response.data.sellerId);
-          localStorage.setItem('sellerName', response.data.name);
-          localStorage.setItem('storeName', response.data.storeName);
-  
-          alert("Login Successful!");
-          navigate("/dashboard");
-        } catch (error) {
-          alert(error.response?.data?.message || "Login Failed");
-        }
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.email) newErrors.email = "Email is required";
+    if (!formData.email.includes("@")) newErrors.email = "Invalid email format";
+    if (!formData.password) newErrors.password = "Password is required";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/auth/login",
+          { email: formData.email, password: formData.password }
+        );
+
+        localStorage.setItem("sellerToken", response.data.token);
+        localStorage.setItem("sellerId", response.data.sellerId);
+        localStorage.setItem("sellerName", response.data.name);
+        localStorage.setItem("storeName", response.data.storeName);
+
+        alert("Login Successful!");
+        navigate("/dashboard");
+      } catch (error) {
+        alert(error.response?.data?.message || "Login Failed");
       }
-    };
+    }
+  };
 
   return (
     <div className={styles.loginContainer}>

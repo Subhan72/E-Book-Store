@@ -1,50 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import styles from './Dashboard.module.css';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import styles from "./Dashboard.module.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [sellerInfo, setSellerInfo] = useState({
-    name: '',
-    storeName: '',
-    token: ''
+    name: "",
+    storeName: "",
+    token: "",
   });
 
   useEffect(() => {
     // Check authentication on component mount
-    const token = localStorage.getItem('sellerToken');
-    const sellerName = localStorage.getItem('sellerName');
-    const storeName = localStorage.getItem('storeName');
+    const token = localStorage.getItem("sellerToken");
+    const sellerName = localStorage.getItem("sellerName");
+    const storeName = localStorage.getItem("storeName");
 
     if (!token) {
       // Redirect to login if no token
-      navigate('/login');
+      navigate("/login");
       return;
     }
 
     setSellerInfo({
-      name: sellerName || '',
-      storeName: storeName || '',
-      token: token
+      name: sellerName || "",
+      storeName: storeName || "",
+      token: token,
     });
   }, [navigate]);
 
   const handleLogout = () => {
     // Remove all seller-related items from localStorage
     const storageKeysToRemove = [
-      'sellerToken', 
-      'sellerId', 
-      'sellerName', 
-      'storeName'
+      "sellerToken",
+      "sellerId",
+      "sellerName",
+      "storeName",
     ];
 
-    storageKeysToRemove.forEach(key => 
-      localStorage.removeItem(key)
-    );
+    storageKeysToRemove.forEach((key) => localStorage.removeItem(key));
 
     // Redirect to login page
-    navigate('/login');
+    navigate("/login");
   };
 
   const DashboardCard = ({ title, icon, link }) => (
@@ -63,30 +61,15 @@ const Dashboard = () => {
           <h2>Welcome, {sellerInfo.name}</h2>
           <p>Store: {sellerInfo.storeName}</p>
         </div>
-        <button 
-          onClick={handleLogout} 
-          className={styles.logoutButton}
-        >
+        <button onClick={handleLogout} className={styles.logoutButton}>
           Logout
         </button>
       </header>
 
       <main className={styles.dashboardGrid}>
-        <DashboardCard 
-          title="Add Book" 
-          icon="📖" 
-          link="/addbook" 
-        />
-        <DashboardCard 
-          title="Update Book" 
-          icon="✏️" 
-          link="/updatebook" 
-        />
-        <DashboardCard 
-          title="Delete Book" 
-          icon="🗑️" 
-          link="/deletebook" 
-        />
+        <DashboardCard title="Add Book" icon="📖" link="/addbook" />
+        <DashboardCard title="Update Book" icon="✏️" link="/updatebook" />
+        <DashboardCard title="Delete Book" icon="🗑️" link="/deletebook" />
         {/* <DashboardCard 
           title="View Orders" 
           icon="📦" 
@@ -97,19 +80,11 @@ const Dashboard = () => {
           icon="🔄" 
           link="/updateorderstatus" 
         /> */}
-        <DashboardCard 
-          title="Process Refunds" 
-          icon="💰" 
-          link="/refundprocessing" 
-        />
-        <DashboardCard 
-          title="Sales Report" 
-          icon="📊" 
-          link="/salesreport" 
-        />
+        <DashboardCard title="Process Refunds" icon="💰" link="/refund" />
+        <DashboardCard title="Sales Report" icon="📊" link="/salesreport" />
       </main>
 
-      <section className={styles.quickStatsSection}>
+      {/* <section className={styles.quickStatsSection}>
         <h3>Quick Stats</h3>
         <div className={styles.statsContainer}>
           <div className={styles.statCard}>
@@ -125,7 +100,7 @@ const Dashboard = () => {
             <p>$0</p>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

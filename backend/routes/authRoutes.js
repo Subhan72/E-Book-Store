@@ -7,7 +7,6 @@ const {
 } = require("../middleware/viladationMiddleware");
 const authMiddleware = require("../middleware/authMiddleware");
 
-
 router.post(
   "/register",
   validateSellerRegistration,

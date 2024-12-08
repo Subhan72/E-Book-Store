@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./DeleteBook.module.css";
-import { Trash2 } from 'lucide-react';
+import { Trash2 } from "lucide-react";
 
 const DeleteBook = () => {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ const DeleteBook = () => {
 
   const handleBookSelect = (book) => {
     // If the same book is clicked again, deselect it
-    setSelectedBook(prevSelected => 
+    setSelectedBook((prevSelected) =>
       prevSelected?._id === book._id ? null : book
     );
     // Reset messages when selecting a new book
@@ -55,8 +55,10 @@ const DeleteBook = () => {
   const handleDelete = async () => {
     if (!selectedBook) return;
 
-    const confirmDelete = window.confirm(`Are you sure you want to delete "${selectedBook.title}"?`);
-    
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete "${selectedBook.title}"?`
+    );
+
     if (!confirmDelete) return;
 
     setIsDeleting(true);
@@ -73,7 +75,9 @@ const DeleteBook = () => {
       );
 
       // Remove the deleted book from the list
-      setBooks(prevBooks => prevBooks.filter(book => book._id !== selectedBook._id));
+      setBooks((prevBooks) =>
+        prevBooks.filter((book) => book._id !== selectedBook._id)
+      );
 
       setSuccessMessage(`Book "${selectedBook.title}" deleted successfully!`);
       setSelectedBook(null);
@@ -110,9 +114,9 @@ const DeleteBook = () => {
             >
               <h4>{book.title}</h4>
               <p>{book.author}</p>
-              
+
               {selectedBook?._id === book._id && (
-                <button 
+                <button
                   className={styles.deleteButton}
                   onClick={(e) => {
                     e.stopPropagation(); // Prevent book selection when clicking delete
