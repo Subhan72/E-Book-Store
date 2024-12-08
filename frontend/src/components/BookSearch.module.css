@@ -1,0 +1,57 @@
+.book-search-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+  }
+  
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    margin-right: 10px;
+    width: 300px;
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .book-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .book-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .book-box img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .book-details {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .book-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .book-details p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  

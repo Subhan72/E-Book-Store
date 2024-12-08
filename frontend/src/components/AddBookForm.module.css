@@ -1,0 +1,83 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f7fc; /* Light background color */
+  }
+  
+  .formContainer {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left; 
+    display: block; 
+  }
+  
+  
+  input,
+  textarea,
+  select,
+  button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="date"] {
+    font-size: 14px;
+  }
+  
+  textarea {
+    font-size: 14px;
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  select {
+    font-size: 14px;
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+  }
+  

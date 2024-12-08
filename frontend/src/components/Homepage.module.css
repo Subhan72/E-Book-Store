@@ -1,0 +1,57 @@
+.homepage-container {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+  }
+  
+  .homepage-container h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .homepage-container p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .box-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .box {
+    width: 250px;
+    height: 200px;
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .box:hover {
+    background-color: #45a049;
+  }
+  
+  .logout-button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  .logout-button:hover {
+    background-color: #d32f2f;
+  }
+  
